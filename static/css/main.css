@@ -1,0 +1,29 @@
+.navigation-bar {
+    color: white;
+    text-decoration: none;
+}
+.content-with-background-color{
+    background-color:#69d369;
+    text-align: center;
+    font-style: normal;
+    font-size: large;
+    font-weight: normal;
+    border: green 10px;
+    padding: 200px 200px 200px 200px;
+    color: whitesmoke;
+    opacity: .8;
+    margin: 1px 1px 1px 1px ;
+
+}
+.navigation-bar-right{
+    flex:1;
+    transition: font-size 2s;
+    background-color: white;
+}
+
+.navigation-bar {
+    background-color:green;
+    color: white;
+    display: flex;
+    flex-direction: column-reverse;
+}
