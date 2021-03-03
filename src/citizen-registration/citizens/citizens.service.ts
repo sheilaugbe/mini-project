@@ -1,13 +1,22 @@
 import { Injectable } from '@nestjs/common';
-import { CreateCitizenDto } from './dto/create-citizen.dto';
+import { User } from '../users/entities/user.entity';
 import { UpdateCitizenDto } from './dto/update-citizen.dto';
+import { CreateCitizenDto } from './dto/create-citizen.dto';
 
 @Injectable()
 export class CitizensService {
-  create(createCitizenDto: CreateCitizenDto) {
-    return 'This action adds a new citizen';
+  citizenRepository: any;
+  userRepository: any;
+  CitizenRepository: any;
+  async create(createStudentDto: CreateCitizenDto) {
+    const newStudent = this.citizenRepository.create(CreateCitizenDto);
+    if (createStudentDto.user) {
+      const newUser = this.userRepository.create(createStudentDto.user);
+      const user: User = await this.userRepository.save(newUser);
+      newStudent.user = user;
+    }
+    return this.CitizenRepository.save(newStudent)
   }
-
   findAll() {
     return `This action returns all citizens`;
   }
@@ -23,4 +32,4 @@ export class CitizensService {
   remove(id: number) {
     return `This action removes a #${id} citizen`;
   }
-}
+} 

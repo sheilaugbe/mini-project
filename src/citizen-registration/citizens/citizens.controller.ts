@@ -4,12 +4,12 @@ import { CreateCitizenDto } from './dto/create-citizen.dto';
 import { UpdateCitizenDto } from './dto/update-citizen.dto';
 
 @Controller('citizens')
-export class CitizensController {
+export class citizensController {
   constructor(private readonly citizensService: CitizensService) {}
 
   @Post()
-  create(@Body() createCitizenDto: CreateCitizenDto) {
-    return this.citizensService.create(createCitizenDto);
+  create(@Body() CreatecitizenDto: CreateCitizenDto) {
+    return this.citizensService.create(CreatecitizenDto);
   }
 
   @Get()
